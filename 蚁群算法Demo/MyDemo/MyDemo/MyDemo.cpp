@@ -218,11 +218,11 @@ double nextCitySelProb(int k, int j) {
 	//i保存蚂蚁k的当前位置
 	int i = antColony[k].antLoc;
 	//计算P
-	p = pow(pheromoneMatrix[i][j], ALPHA) + pow(inspMartix[i][j], BETA);
+	p = pow(pheromoneMatrix[i][j], ALPHA) * pow(inspMartix[i][j], BETA);
 	//计算sum
 	for (int m = 0; m < CITY_NUMBER; ++m) {
 		if (cityDistance[i][j] != -1 && !ifCityInTabu(k, m)) {
-			sum += pow(pheromoneMatrix[i][m], ALPHA) + pow(inspMartix[i][m], BETA);
+			sum += pow(pheromoneMatrix[i][m], ALPHA) * pow(inspMartix[i][m], BETA);
 		}
 	}
 	
